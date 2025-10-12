@@ -1,0 +1,7 @@
+pandas
+openpyxl
+langgraph
+langchain_ollama
+instructor
+pydantic
+tavily-python

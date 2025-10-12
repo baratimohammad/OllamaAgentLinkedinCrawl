@@ -1,0 +1,28 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+#    environment:
+ #     OLLAMA_CONTEXT_LENGTH: 50000
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  linkedin_crawler:
+    build: .
+    container_name: linkedin_crawler
+    environment:
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - OLLAMA_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    volumes:
+      - ./app:/app
+      - ./shared_data:/shared_data
+    restart: no
+    command: ["python", "transform.py"]
+
+volumes:
+  ollama_data:
