@@ -46,13 +46,15 @@ def extract_experience_snippet(raw_text: str) -> str:
 
     # Find the '## Experience' section, case-insensitive
     match = re.search(r"##\s*Experience", raw_text, re.IGNORECASE)
+    education = re.search(r"##\sEducation", raw_text, re.IGNORECASE)
     if not match:
         print("[INFO] No '## Experience' section found.")
         # fallback: just take the first 300 chars of text
-        return raw_text[:500]
+        return raw_text[:2500]
 
-    start_idx = match.end()
-    snippet = raw_text[start_idx:start_idx + 500]
+    start_idx = match.start()
+    end_idx = education.end()
+    snippet = raw_text[start_idx:end_idx]
     print(f"[DEBUG] Extracted snippet around '## Experience': {snippet}...")
     return snippet
 
@@ -75,7 +77,7 @@ Schema (return keys exactly as shown):
   "Company Name": "string",
   "Job Position": "string",
   "Company Location": "string",
-  "Company Website": "string",
+  "Company Linkedin URL": "string",
   "Start Year":"string",
   "Finish Year": "string",
   "Job Description": "string" 
