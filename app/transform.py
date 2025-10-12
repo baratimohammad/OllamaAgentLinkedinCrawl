@@ -1,9 +1,9 @@
 from langchain_ollama import ChatOllama
 from tavily import TavilyClient
-import re
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
 from langchain.schema import HumanMessage
+import re
 import os
 
 # === Initialization ===
@@ -25,7 +25,6 @@ class GraphState(TypedDict, total=False):
     url: str
     raw_profile: str
     profile_json: str
-
 
 # === Step 1: Extract Raw Profile ===
 def extract_profile(state: GraphState) -> GraphState:
@@ -59,7 +58,6 @@ def extract_experience_snippet(raw_text: str) -> str:
     return snippet
 
 
-# === Step 3: Format with LLM ===
 def format_profile(state: GraphState) -> GraphState:
     raw = state.get("raw_profile", "").strip()
     snippet = extract_experience_snippet(raw)
@@ -90,6 +88,7 @@ Text to extract from (triple-quoted block):
 
 Return ONLY a JSON object. Do NOT include any explanation or extra text.
 """
+
 
     try:
         rsp = llm.invoke([HumanMessage(content=prompt)])
