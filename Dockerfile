@@ -21,4 +21,4 @@ RUN pip install --no-cache-dir --upgrade pip \
     requests
 
 # Set default command
-CMD ["python", "transform.py"]
+ENTRYPOINT ["python", "crawl.py"]

@@ -8,8 +8,8 @@ import random
 # tavily = TavilyClient(api_key=os.environ['TAVILY_API_KEY'])
 print("Tavily client initiated")
 
-input_path = "app/linkedininput/students_linkedin_20230504.xlsx"
-output_path = "app/linkedinoutput/bronze/raw_linkedin_total.jsonl"
+input_path = "shared_data/linkedininput/students_linkedin_20230504.xlsx"
+output_path = "shared_data/linkedinoutput/bronze/raw_linkedin_total.jsonl"
 
 
 def rand_gen():
@@ -27,12 +27,9 @@ def rand_gen():
 # === Initialization ===
 tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
 
-input_path = "/linkedininput/students_linkedin_20230504.xlsx"
-output_path = "/linkedinoutput/raw_linkedin_total.jsonl"
-
 # === Load Excel file ===
 df = pd.read_excel(input_path, sheet_name="students_linkedin_20230504")
-df = df.dropna(subset=["Linkedin"])  # drop rows with no URL
+df = df.dropna(subset=["LinkedIn"])  # drop rows with no URL
 print(f"Loaded {len(df)} rows to process.")
 
 
@@ -46,7 +43,7 @@ def append_jsonl(record, filepath):
 
 # === Process each row ===
 for idx, row in df.iterrows():
-    url = str(row["Linkedin"]).strip()
+    url = str(row["LinkedIn"]).strip()
     if not url or not url.startswith("http"):
         print(f"[{idx}] Invalid or missing URL: {url}")
         continue

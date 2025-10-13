@@ -5,13 +5,11 @@ from langgraph.graph import StateGraph, END
 from langchain.schema import HumanMessage
 import re
 import os
+import time
 
 # === Initialization ===
 tavily = TavilyClient(api_key=os.environ['TAVILY_API_KEY'])
 print("Tavily client initiated")
-
-
-url = "https://www.linkedin.com/in/gianvito-urgese-5bb2668a/"
 
 llm = ChatOllama(
     model="llama3.2:3b",
@@ -54,7 +52,7 @@ def extract_experience_snippet(raw_text: str) -> str:
     start_idx = match.start()
     end_idx = education.end()
     snippet = raw_text[start_idx:end_idx]
-    print(f"[DEBUG] Extracted snippet around '## Experience': {snippet}...")
+#    print(f"[DEBUG] Extracted snippet around '## Experience': {snippet}...")
     return snippet
 
 
@@ -110,11 +108,27 @@ builder.add_edge("format", END)
 graph = builder.compile()
 
 # === Run ===
-linkedin_url = url
-state = {"url": linkedin_url}
 
-try:
-    out = graph.invoke(state)
-    print(f"[DEBUG] Output: {out.get('profile_json')}")
-except Exception as e:
-    print(f"[ERROR] graph.invoke failed: {e}")
+url_list = [
+	"https://www.linkedin.com/in/gianvito-urgese-5bb2668a/",
+	"https://www.linkedin.com/in/giuseppe-fanuli-211654161/",
+	"https://www.linkedin.com/in/mhmdbarati/"
+]
+results = []
+
+for url in url_list:
+    state = {"url":url}
+
+
+    try:
+        out = graph.invoke(state)
+        print(f"[DEBUG] Output: {type(out.get('profile_json'))}")
+        results.append(out.get('profile_json'))
+    except Exception as e:
+        print(f"[ERROR] graph.invoke failed: {e}")
+
+for item in results:
+    print(item)
+    print("-------------------")
+
+
