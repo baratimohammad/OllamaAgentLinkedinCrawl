@@ -1,0 +1,83 @@
+[33mcommit 72466011e6f40c301e221fdaee964112e9c0f60a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmedallion-architecture[m[33m)[m
+Author: Max <maximobarati@gmail.com>
+Date:   Thu Oct 23 13:05:55 2025 +0000
+
+    Initial working medallion architecture
+
+[33mcommit e26674ca7792dbfbc666b14879e5a13f8cb7bea7[m
+Author: Max <maximobarati@gmail.com>
+Date:   Thu Oct 23 13:01:37 2025 +0000
+
+    Initial working medallion framework
+
+[33mcommit 209c5a04357e450e99d326c0eba70652d713221b[m
+Author: Max <maximobarati@gmail.com>
+Date:   Thu Oct 23 12:58:46 2025 +0000
+
+    Initial working medallion framework
+
+[33mcommit a909793543d1ac2617e5d104ecd77558c9c6c9a6[m
+Author: Max <maximobarati@gmail.com>
+Date:   Thu Oct 23 12:56:08 2025 +0000
+
+    Initial working medallion framework
+
+[33mcommit 046740c48f0e3dc38f2efac5269bd76fb941aca0[m[33m ([m[1;31morigin/medallion-architecture[m[33m)[m
+Author: Max <maximobarati@gmail.com>
+Date:   Mon Oct 13 20:15:13 2025 +0000
+
+    Tavily fails in retrieving most profiles
+
+[33mcommit 844eb5fb7ae86c15728dd82f789d007ed6d4cf0c[m
+Author: Mohammad Barati <mohammadbarati@dock02.polito.it>
+Date:   Mon Oct 13 15:53:33 2025 +0200
+
+    Separating extraction and transformation for more robustness
+
+[33mcommit 21204079187265223c754c6da0e0947d5df4c871[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: baratimohammad <mbarati305@gmail.com>
+Date:   Mon Oct 13 14:56:27 2025 +0200
+
+    Delete .github/workflows directory
+
+[33mcommit 802761008008f385248be48c111a1869a9ae3024[m
+Author: baratimohammad <mbarati305@gmail.com>
+Date:   Mon Oct 13 14:33:19 2025 +0200
+
+    Delete app/linkedininput/profili_google_Linkedin_40_ciclo_rev.xlsx
+
+[33mcommit 89e0d0dbdb1b96d3751fa46e3a1467d385679696[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Max <maximobarati@gmail.com>
+Date:   Sun Oct 12 18:55:28 2025 +0000
+
+    gitignore updated
+
+[33mcommit e610764a78f037ee01739657831c1c4378c95169[m
+Author: Max <maximobarati@gmail.com>
+Date:   Sun Oct 12 18:54:27 2025 +0000
+
+    gitignore updated
+
+[33mcommit 65c3f808000bb328e48a32aead7decbfee2faa80[m
+Author: Max <maximobarati@gmail.com>
+Date:   Sun Oct 12 18:52:20 2025 +0000
+
+    gitignore updated
+
+[33mcommit d253f3dabd8c7c23f9af876ce2f4df826ce0b129[m
+Author: baratimohammad <mbarati305@gmail.com>
+Date:   Sun Oct 12 19:55:48 2025 +0200
+
+    Create pylint.yml
+
+[33mcommit 9ec793e5d38611dd51a41ad8f12ae3631ac02e07[m
+Author: Max <maximobarati@gmail.com>
+Date:   Sun Oct 12 17:53:23 2025 +0000
+
+    Optmizing for Continuous Delivery
+
+[33mcommit bc489eae46677c5e3d0bc637a38190c7113c49a8[m
+Author: Max <maximobarati@gmail.com>
+Date:   Sun Oct 12 14:19:05 2025 +0000
+
+    Initial commit of the first working version.

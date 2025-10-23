@@ -1,5 +1,4 @@
 from langchain_ollama import ChatOllama
-from tavily import TavilyClient
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
 from langchain.schema import HumanMessage
@@ -8,9 +7,6 @@ import os
 import time
 
 # === Initialization ===
-tavily = TavilyClient(api_key=os.environ['TAVILY_API_KEY'])
-print("Tavily client initiated")
-
 llm = ChatOllama(
     model="llama3.2:3b",
     temperature=0,
@@ -23,16 +19,6 @@ class GraphState(TypedDict, total=False):
     url: str
     raw_profile: str
     profile_json: str
-
-# === Step 1: Extract Raw Profile ===
-def extract_profile(state: GraphState) -> GraphState:
-    try:
-        res = tavily.extract(urls=[state["url"]])
-        text = res["results"][0].get("raw_content", "") if res.get("results") else ""
-    except Exception as e:
-        print(f"[ERROR] extract failed for {state['url']}: {e}")
-        text = ""
-    return {"raw_profile": text}
 
 
 # === Step 2: Trim to '## Experience' Section (300 chars) ===

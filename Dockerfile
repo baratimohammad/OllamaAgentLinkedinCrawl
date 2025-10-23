@@ -4,21 +4,17 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Copy code
-COPY app /app
+COPY app/ /app/
+COPY shared_data/ /shared_data/
+COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir --upgrade pip \
- && pip install --no-cache-dir \
-    pandas \
-    tavily-python \
-    langchain \
-    langchain_ollama \
-    langgraph \
-    instructor \
-    pydantic \
-    openpyxl \
-    httpx \
-    requests
+RUN pip install --no-cache-dir -r requirements.txt
+
+
 
 # Set default command
-ENTRYPOINT ["python", "crawl.py"]
+# ENTRYPOINT ["python", "EmploymentAgent.py"]
+ENTRYPOINT ["python", "-u", "SummarizeAgent.py"]
+
+ENV PYTHONUNBUFFERED=1

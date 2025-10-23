@@ -1,7 +1,7 @@
-pandas
-openpyxl
+langchain>=0.2.0
+langchain-ollama
 langgraph
-langchain_ollama
-instructor
-pydantic
 tavily-python
+requests
+pydantic
+csv
