@@ -1,6 +1,4 @@
 .env
-shared_data/linkedininput/*
-shared_data/linkedinoutput/*
 *.json
 *.log
 __pycache__/
